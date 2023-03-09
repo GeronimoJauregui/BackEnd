@@ -13,6 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using TiendaServicios.Api.CarritoCompra.Application;
 using TiendaServicios.Api.CarritoCompra.Persistence;
+using TiendaServicios.Api.CarritoCompra.RemoteInterface;
+using TiendaServicios.Api.CarritoCompra.RemoteService;
 
 namespace TiendaServicios.Api.CarritoCompra
 {
@@ -34,6 +36,11 @@ namespace TiendaServicios.Api.CarritoCompra
                 options.UseMySql(Configuration.GetConnectionString("ConexionDataBase"));
             });
             services.AddMediatR(typeof(New.Manejador).Assembly);
+            services.AddHttpClient("Libros", config =>
+            {
+                config.BaseAddress = new Uri(Configuration["Services:Libros"]);
+            });
+            services.AddScoped<ILibroService, LibroService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
