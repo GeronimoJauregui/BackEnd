@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TiendaServicios.Api.CarritoCompra.Application;
 using TiendaServicios.Api.CarritoCompra.Persistence;
 
 namespace TiendaServicios.Api.CarritoCompra
@@ -31,6 +33,7 @@ namespace TiendaServicios.Api.CarritoCompra
             {
                 options.UseMySql(Configuration.GetConnectionString("ConexionDataBase"));
             });
+            services.AddMediatR(typeof(New.Manejador).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
