@@ -70,7 +70,6 @@ namespace TiendaServicios.Api.Libro.Tests
         [Fact]
         public async void GetLibros()
         {
-            System.Diagnostics.Debugger.Launch();
             var mockContext = CrearContexto();
             var mapConfig = new MapperConfiguration(cfg =>
             {
@@ -85,6 +84,28 @@ namespace TiendaServicios.Api.Libro.Tests
             var lista = await manejador.Handle(request, new System.Threading.CancellationToken());
 
             Assert.True(lista.Any());
+        }
+
+        [Fact]
+        public async void GuardarLibro()
+        {
+            System.Diagnostics.Debugger.Launch();
+
+            var options = new DbContextOptionsBuilder<ContextLibreria>()
+                .UseInMemoryDatabase(databaseName: "BaseDatosLibro")
+                .Options;
+
+            var contexto = new ContextLibreria(options);
+            var request = new New.Ejecuta();
+            request.Titulo = "TituloPrueba1";
+            request.AutorLibro = Guid.Empty;
+            request.FechaPublicacion = DateTime.Now;
+
+            var manejador = new New.Manejador(contexto);
+
+            var libro = await manejador.Handle(request, new System.Threading.CancellationToken());
+
+            Assert.True(libro != null);
         }
     }
 }
