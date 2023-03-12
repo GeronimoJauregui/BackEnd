@@ -29,6 +29,23 @@ services:
       target: 80
       published: "6106"
       protocol: tcp
+  tiendaservicios.api.gateway:
+    build:
+      context: C:\Users\Ger├│nimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios
+      dockerfile: TiendaServicios.Api.Gateway/Dockerfile
+    depends_on:
+      tiendaservicios.api.libro:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: tiendaserviciosapigateway
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "6107"
+      protocol: tcp
   tiendaservicios.api.libro:
     build:
       context: C:\Users\Ger├│nimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios
