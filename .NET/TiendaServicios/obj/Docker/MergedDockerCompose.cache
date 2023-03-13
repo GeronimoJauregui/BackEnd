@@ -38,6 +38,7 @@ services:
         condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      Services__Autor: http://tiendaservicios.api.gateway
     image: tiendaserviciosapigateway
     networks:
       default: null
