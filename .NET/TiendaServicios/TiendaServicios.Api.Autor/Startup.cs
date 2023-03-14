@@ -14,7 +14,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TiendaServicios.Api.Autor.Application;
+using TiendaServicios.Api.Autor.ManejadorRabbit;
 using TiendaServicios.Api.Autor.Persistence;
+using TiendaServicios.RabbitMQ.Bus.BusRabbit;
+using TiendaServicios.RabbitMQ.Bus.EventoQueue;
 
 namespace TiendaServicios.Api.Autor
 {
@@ -30,6 +33,8 @@ namespace TiendaServicios.Api.Autor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IRabbitEventBus, IRabbitEventBus>();
+            services.AddTransient<IEventoManejador<EmailEventoQueue>, EmailEventoManejador>();
             services.AddControllers().AddFluentValidation( cfg => cfg.RegisterValidatorsFromAssemblyContaining<New>());
             services.AddDbContext<ContextAutor>(options =>
             {
@@ -56,6 +61,8 @@ namespace TiendaServicios.Api.Autor
             {
                 endpoints.MapControllers();
             });
+            var eventBus = app.ApplicationServices.GetRequiredService<IRabbitEventBus>();
+            eventBus.Subscribe<EmailEventoQueue, EmailEventoManejador>();
         }
     }
 }

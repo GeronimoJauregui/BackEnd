@@ -1,0 +1,9 @@
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\bin\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.deps.json
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\bin\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.dll
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\bin\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.pdb
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\obj\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\obj\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.AssemblyInfoInputs.cache
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\obj\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.AssemblyInfo.cs
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\obj\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.csproj.CoreCompileInputs.cache
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\obj\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.dll
+C:\Users\GerónimoJaureguiMart\Documents\Personal\BackEnd\.NET\TiendaServicios\TiendaServicios.RabbitMQ.Bus\obj\Debug\netcoreapp3.1\TiendaServicios.RabbitMQ.Bus.pdb

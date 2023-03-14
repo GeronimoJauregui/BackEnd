@@ -5,6 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using TiendaServicios.Api.Libro.Models;
 using TiendaServicios.Api.Libro.Persistence;
+using TiendaServicios.RabbitMQ.Bus.BusRabbit;
+using TiendaServicios.RabbitMQ.Bus.EventoQueue;
 
 namespace TiendaServicios.Api.Libro.Application
 {
@@ -30,10 +32,12 @@ namespace TiendaServicios.Api.Libro.Application
         public class Manejador : IRequestHandler<Ejecuta>
         {
             private readonly ContextLibreria _context;
+            private readonly IRabbitEventBus _eventBus;
             
-            public Manejador(ContextLibreria context)
+            public Manejador(ContextLibreria context, IRabbitEventBus eventBus)
             {
                 _context = context;
+                _eventBus = eventBus;
             }
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
@@ -46,6 +50,8 @@ namespace TiendaServicios.Api.Libro.Application
 
                 _context.LibreriaMaterial.Add(libro);
                 var valor = await _context.SaveChangesAsync();
+
+                _eventBus.Publish(new EmailEventoQueue("geronimo.jauregui@isita.com.mx", request.Titulo, "Este contenido es un ejemplo"));
                 
                 if(valor > 0)
                 {
